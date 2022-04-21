@@ -1,43 +1,37 @@
-let sceltaUtente = prompt("Scegli pari o dispari");
-let numeroUtente = parseInt(prompt("Scegli un numero da 1 a 5"));
-let numeroIa = numeroRandom(6) ;
-let isPari 
+//Dichiarazione variabili e input utente
+let numeroUtente = "";
+let sceltaUtente = "";
+let continua = true;
+do {
+    sceltaUtente = prompt("Scegli pari o dispari").toLowerCase();
+    if (sceltaUtente === "pari" || sceltaUtente === "dispari") {
+        continua = false;
+    }
+}
+while (continua);
+
+do {
+    numeroUtente = parseInt(prompt("Scegli un numero da 1 a 5"));
+}
+while (isNaN(numeroUtente) || numeroUtente > 5);
+let numeroIa = numeroRandom(6);
+let isPari
 
 if (sceltaUtente === "pari") {
-    isPari = true ; 
+    isPari = true;
 }
-
-console.log(isPari);
-console.log(numeroUtente);
-console.log(numeroIa);
-
+//Calcolo somma 
 let somma = numeroUtente + numeroIa;
-console.log(somma);
+//Controllo parità
+let risultato = evenOdd(somma);
 
-let risultato = evenOdd(somma) ;
-console.log(risultato);
-
+//Output risultato
 if (risultato == isPari) {
-    console.log("Vince il giocatore") ;
+    console.log("Vince il giocatore");
 }
 else {
     console.log("Vince il computer");
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //FUNZIONI
@@ -46,5 +40,6 @@ function numeroRandom(massimo) {
 }
 
 function evenOdd(valore) {
-    return (valore % 2 == 0) ; 
+    return (valore % 2 == 0);
 }
+
